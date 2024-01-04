@@ -45,11 +45,19 @@ def display_uploaded_images():
         if st.sidebar.button("Match"):
 
             if uploaded_files:
-                temp_dir = "./temp"
-                os.makedirs(temp_dir, exist_ok=True)
+                temp_dir = tempfile.mkdtemp()
+                output_dir = tempfile.mkdtemp()
+                
+                if not os.path.exists(temp_dir):
+                    os.makedirs(temp_dir)
+                if not os.path.exists(output_dir):
+                    os.makedirs(output_dir)
 
-                output_dir = "./Result_SuperGlue"
-                os.makedirs(output_dir, exist_ok=True)
+                #temp_dir = "./temp"
+                #os.makedirs(temp_dir, exist_ok=True)
+
+                #output_dir = "./Result_SuperGlue"
+                #os.makedirs(output_dir, exist_ok=True)
                 # Save the uploaded images to the temporary directory
                 for uploaded_file in uploaded_files:
                     img = Image.open(uploaded_file)
