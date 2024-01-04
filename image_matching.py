@@ -5,7 +5,6 @@ import streamlit.components.v1 as components
 from PIL import Image
 import io
 import streamlit as st
-import cv2
 import torch
 import numpy as np
 import argparse
