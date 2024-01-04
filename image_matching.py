@@ -16,8 +16,8 @@ import time
 import tempfile
 from SuperGluePretrainedNetwork.models import matching
 from SuperGluePretrainedNetwork.models.utils import (AverageTimer, VideoStreamer,make_matching_plot_fast, frame2tensor)
-from LoFTR.src.loftr import LoFTR, default_cfg
-from LoFTR.src.utils.plotting import make_matching_figure
+#from LoFTR.src.loftr import LoFTR, default_cfg
+#from LoFTR.src.utils.plotting import make_matching_figure
 torch.set_grad_enabled(False)
 
 def display_uploaded_images():
