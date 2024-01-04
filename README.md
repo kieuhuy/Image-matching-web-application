@@ -11,7 +11,7 @@
 
 ```bash
 streamlit run main.py
-
+```
 
 # Main page:
   ![home](https://github.com/kieuhuy/Image-matching-web-application/assets/83636991/fc1d71ea-5b9f-4688-a855-93c7106a7b00)
