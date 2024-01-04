@@ -41,44 +41,45 @@ def display_uploaded_images():
     placeholder = st.sidebar.container()        
     option = placeholder.selectbox(f'## Select method:',('SuperGlue','LoFTR'))
 
+    import tempfile
+
+    temp_dir = tempfile.mkdtemp()
+    output_dir = tempfile.mkdtemp()
+    
     if option == "SuperGlue":
         if st.sidebar.button("Match"):
-
             if uploaded_files:
-                temp_dir = tempfile.mkdtemp()
-                output_dir = tempfile.mkdtemp()
-                
+                # Ensure temporary and output directories exist
                 if not os.path.exists(temp_dir):
                     os.makedirs(temp_dir)
+    
                 if not os.path.exists(output_dir):
                     os.makedirs(output_dir)
-
-                #temp_dir = "./temp"
-                #os.makedirs(temp_dir, exist_ok=True)
-
-                #output_dir = "./Result_SuperGlue"
-                #os.makedirs(output_dir, exist_ok=True)
-                # Save the uploaded images to the temporary directory
+    
+                # Save uploaded images to the temporary directory
                 for uploaded_file in uploaded_files:
                     img = Image.open(uploaded_file)
                     img.save(os.path.join(temp_dir, uploaded_file.name))
-
+    
                 # Run SuperGlue on the temporary directory
                 superglue_command(temp_dir, output_dir)
+    
+                # Display images from the output directory
                 img_files = os.listdir(output_dir)
                 for img in img_files:
                     image_path = os.path.join(output_dir, img)
                     image = Image.open(image_path)
                     st.image(image, use_column_width=True)
-
-                #Clear old matching result to get the latest data
+    
+                # Clear old matching results to get the latest data
                 if st.button("New match"):
                     shutil.rmtree(output_dir)
-
+    
                 # Delete the temporary directory and its contents
                 shutil.rmtree(temp_dir)
             else:
                 st.sidebar.warning("Please upload at least two images.")
+
 
     if option == "LoFTR":
         if st.sidebar.button("Match"):
