@@ -7,8 +7,8 @@
 
 •	The final output includes the points that match between the two images, and a file that contains key points that are extracted during the process are ready to be used for tasks like Structure from Motion (SFM) and so on.  
 
-# Runt the file: 
-''' streamlit run main.py
+# Run the file: 
+'''streamlit run main.py
 
 # Main page:
   ![home](https://github.com/kieuhuy/Image-matching-web-application/assets/83636991/fc1d71ea-5b9f-4688-a855-93c7106a7b00)
