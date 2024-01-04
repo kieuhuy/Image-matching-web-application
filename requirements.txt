@@ -7,7 +7,7 @@ kornia
 loguru
 matplotlib
 numpy
-opencv-python
+opencv-python-headless
 pandas
 Pillow
 Pillow
